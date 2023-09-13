@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:wudasemaryam/screen/homepage/mainhomepage.dart';
 import 'package:wudasemaryam/utils/constant.dart';
 
 import '../homepage/homepage.dart';
@@ -17,7 +18,7 @@ class _SPlashState extends State<SPlash> {
   @override
   void initState() {
     Future.delayed(const Duration(seconds: 3),() {
-      Navigator.push(context,MaterialPageRoute(builder: (context) => Homepage(),));
+      Navigator.push(context,MaterialPageRoute(builder: (context) => MainHomePage(),));
     },);
   }
   @override

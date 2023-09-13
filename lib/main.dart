@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:wudasemaryam/screen/homepage/homepage.dart';
+import 'package:wudasemaryam/screen/homepage/mainhomepage.dart';
+import 'package:wudasemaryam/screen/setting/setting.dart';
 import 'package:wudasemaryam/screen/splash/splash.dart';
 import 'package:wudasemaryam/utils/constant.dart';
 
@@ -15,6 +18,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
+      defaultTransition: Transition.leftToRight,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor:Constants().primColor),
         scaffoldBackgroundColor: Constants().backColor,
@@ -26,7 +30,13 @@ class MyApp extends StatelessWidget {
           unselectedItemColor: Colors.white30,
         )
       ),
-      home: const SPlash()
+      initialRoute:"/splash",
+        getPages: [
+          GetPage(name: "/splash", page:() => SPlash(),),
+          GetPage(name: "/home", page: () => Homepage(),),
+          GetPage(name: "/mainhome", page:() => MainHomePage(),),
+          GetPage(name: "/setting", page: () => Setting(),)
+      ],
     );
   }
 

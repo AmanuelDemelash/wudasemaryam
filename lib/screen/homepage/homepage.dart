@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wudasemaryam/screen/homepage/controller/homepage_controller.dart';
-import 'package:wudasemaryam/screen/splash/splash.dart';
+import 'package:wudasemaryam/screen/homepage/widgets/daypraycard.dart';
 import 'package:wudasemaryam/utils/constant.dart';
 
 class Homepage extends StatelessWidget {
@@ -11,18 +11,6 @@ class Homepage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar:Obx(() =>
-      BottomNavigationBar(
-        currentIndex:homeCOntroller.intialpage.value,
-          iconSize:30,
-          items:const[
-        BottomNavigationBarItem(icon: Icon(Icons.menu,),label: "Home",),
-        BottomNavigationBarItem(icon: Icon(Icons.settings,),label: "Setting")
-      ],
-        onTap: (value) => Get.find<HomepageController>().intialpage.value=value,
-
-      ),
-      ),
       body:Container(
         width: Get.width,
           height: Get.height,
@@ -69,12 +57,14 @@ class Homepage extends StatelessWidget {
                       children: [
                         Text("ቋንቋ (Language)",style: TextStyle(color: Constants().textColor,fontWeight: FontWeight.bold),),
                         const SizedBox(width: 20,),
-                        Obx(() =>
+                        
+
+                     Obx(() =>
                         DropdownButton(
                             borderRadius:const BorderRadius.all(Radius.circular(10)),
                             elevation: 0,
                              style:TextStyle(color: Constants().primColor,fontWeight: FontWeight.bold) ,
-                            dropdownColor: Constants().backColor,
+                            dropdownColor: Constants().primColor,
                             padding:const EdgeInsets.all(10),
                             value: homeCOntroller.language.value,
                              focusColor: Constants().primColor,
@@ -84,7 +74,6 @@ class Homepage extends StatelessWidget {
                             DropdownMenuItem(value: "Amharic", child:Text("AMharic")),
                             DropdownMenuItem(value: "Geez", child:Text("Geez")),
                           ],
-
                           onChanged:(value) {
                               homeCOntroller.language.value=value.toString();
                           },),),
@@ -105,24 +94,12 @@ class Homepage extends StatelessWidget {
                     const SizedBox(height: 15,),
                     Expanded(
                       child: ListView.builder(
-                        itemCount:10,
+                        physics: const BouncingScrollPhysics(),
+                        itemCount:homeCOntroller.days.value.length,
                         itemBuilder: (context, index) {
-                        return
-                          Container(
-                          width: Get.width,
-                          margin: const EdgeInsets.only(left: 20,right: 20,bottom: 10),
-                          decoration: BoxDecoration(
-                            color: Constants().backColor,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child:const ListTile(
-                            title: Text("የዘወትር ጸሎት"),
-                            trailing: Icon(Icons.arrow_right),
-                          )
-                        );
+                        return DayPrayCard(index: index,);
                       },),
                     )
-
                   ],
                 ),
               ),
