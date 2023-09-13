@@ -1,8 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:wudasemaryam/screen/homepage/homepage.dart';
 import 'package:wudasemaryam/utils/constant.dart';
+
+import '../homepage/homepage.dart';
 
 class SPlash extends StatefulWidget {
   const SPlash({super.key});
@@ -37,10 +38,9 @@ class _SPlashState extends State<SPlash> {
           SizedBox(
             width: Get.width,
             child: Column(
-              //mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-               const SizedBox(height: 100,),
+              const SizedBox(height: 160,),
                 Text("ዉዳሴ ማርያም",style: TextStyle(fontSize:30,fontWeight: FontWeight.bold, color: Constants().primColor),),
                 Text("A Hymn of Praise for St.Mary",style: TextStyle(color: Constants().textColor),),
                 const SizedBox(height: 30,),
@@ -58,28 +58,32 @@ class _SPlashState extends State<SPlash> {
               ],
             ),
           ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child:  SizedBox(
+              width: Get.width,
+              child: const Image(image: AssetImage("assets/images/Vector 1.png")),
+            ),
+          ),
           //
           Positioned(
             bottom: 0,
             left: 0,
             right: 0,
-            child: ClipPath(
-             // clipper: CustomClipperShape(),
-              child: Container(
-                height: Get.height/2,
+            child:SizedBox(
+              height: 300,
                   width: Get.width,
-                  decoration:BoxDecoration(
-                    color:Constants().primColor,
-                  ),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                   Text("“  ወደ ፈተና እንዳትገቡ\n ተግታችሁ ጸልዩ  “",style: TextStyle(color: Constants().backColor,fontSize: 25),),
                   Text("ማቴ.26:41",style: TextStyle(color: Constants().backColor),)
                 ],
                 ),
                 ),
-            ),
+
           ),
           //
 
@@ -87,24 +91,5 @@ class _SPlashState extends State<SPlash> {
       ),
     );
 
-  }
-}
-
-class CustomClipperShape extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    // Define the shape of the container using a Path
-    var path = Path();
-    path.lineTo(0, size.height); // Start at the bottom-left corner
-    path.quadraticBezierTo(size.height,0,0,size.height); // Curve to the bottom-right corner
-    path.lineTo(size.width, 0); // Line to the top-right corner
-    path.close(); // Close the path to form a bounded shape
-
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) {
-    return true; // Update the clip path whenever the widget is rebuilt
   }
 }
