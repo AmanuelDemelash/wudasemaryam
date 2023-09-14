@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wudasemaryam/screen/homepage/homepage.dart';
 import 'package:wudasemaryam/screen/homepage/mainhomepage.dart';
+import 'package:wudasemaryam/screen/praydetail/praydetail.dart';
 import 'package:wudasemaryam/screen/setting/setting.dart';
 import 'package:wudasemaryam/screen/splash/splash.dart';
 import 'package:wudasemaryam/utils/constant.dart';
@@ -24,18 +25,19 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Constants().backColor,
         useMaterial3: true,
         fontFamily: "myfont",
-        bottomNavigationBarTheme:const BottomNavigationBarThemeData(
-          backgroundColor: Colors.brown,
-          selectedItemColor: Colors.white,
-          unselectedItemColor: Colors.white30,
-        )
+        // bottomNavigationBarTheme:BottomNavigationBarThemeData(
+        //   backgroundColor: Constants().primColor,
+        //   selectedItemColor: Colors.white,
+        //   unselectedItemColor: Colors.white30,
+        // )
       ),
       initialRoute:"/splash",
         getPages: [
           GetPage(name: "/splash", page:() => SPlash(),),
           GetPage(name: "/home", page: () => Homepage(),),
           GetPage(name: "/mainhome", page:() => MainHomePage(),),
-          GetPage(name: "/setting", page: () => Setting(),)
+          GetPage(name: "/setting", page: () => Setting(),),
+          GetPage(name: "/praydetail", page: () => PrayDetail(),)
       ],
     );
   }

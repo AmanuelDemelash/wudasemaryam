@@ -29,13 +29,27 @@ class Homepage extends StatelessWidget {
                 children: [
                   const SizedBox(height:30,),
                   Container(
-                    decoration:const BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(30)),
+                      decoration:BoxDecoration(
+                          borderRadius:const BorderRadius.all(Radius.circular(10)),
+                          color: Constants().primColor.withOpacity(0.5),
+                          border: Border.all(
+                              width: 4,
+                              color: Constants().primColor.withOpacity(0.5)
+                          )
+                      ),
+                    child: Container(
+                      decoration:BoxDecoration(
+                        borderRadius:const BorderRadius.all(Radius.circular(10)),
+                        color: Constants().backColor.withOpacity(0.6),
+                        border: Border.all(
+                           width: 4,
+                          color: Constants().backColor.withOpacity(0.6)
+                        )
       ),
-                    child:
-                    ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        child: const Image(image: AssetImage("assets/images/splashimage.jpeg"),width: 70,height: 70,fit: BoxFit.fill,))
+                      child:ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: const Image(image: AssetImage("assets/images/splashimage.jpeg"),width: 60,height: 60,fit: BoxFit.cover,))
+                    ),
                   ),
                   const SizedBox(height: 10,),
                   Text("ዉዳሴ ማርያም",style: TextStyle(color: Constants().backColor,fontWeight: FontWeight.bold,fontSize: 20),),
@@ -63,8 +77,9 @@ class Homepage extends StatelessWidget {
                         DropdownButton(
                             borderRadius:const BorderRadius.all(Radius.circular(10)),
                             elevation: 0,
+
                              style:TextStyle(color: Constants().primColor,fontWeight: FontWeight.bold) ,
-                            dropdownColor: Constants().primColor,
+                            dropdownColor: Constants().backColor,
                             padding:const EdgeInsets.all(10),
                             value: homeCOntroller.language.value,
                              focusColor: Constants().primColor,

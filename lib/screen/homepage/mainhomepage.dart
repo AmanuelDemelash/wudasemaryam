@@ -27,6 +27,11 @@ class MainHomePage extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: Obx(() =>
+          // BottomNavigationBar(items: [
+          //   BottomNavigationBarItem(icon:Icon(Icons.home),label: "Home"),
+          //   BottomNavigationBarItem(icon:Icon(Icons.settings),label: "Setting"),
+          //
+          // ])
       NavigationBar(
         selectedIndex: homeCOntroller.intialpage.value,
         backgroundColor: Constants().primColor,
@@ -35,7 +40,6 @@ class MainHomePage extends StatelessWidget {
         animationDuration: const Duration( milliseconds: 100),
         labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
         shadowColor: Constants().backColor,
-
         destinations:const[
         NavigationDestination(icon: Icon(Icons.home), label: "Home",),
         NavigationDestination(icon: Icon(Icons.settings), label: "Setting"),
