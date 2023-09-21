@@ -13,7 +13,6 @@ class DayPrayCard extends StatelessWidget {
 
    final homepageconteroller=Get.put(HomepageController());
 
-
   @override
   Widget build(BuildContext context) {
     return  
