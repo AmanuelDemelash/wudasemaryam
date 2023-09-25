@@ -106,7 +106,6 @@ class Homepage extends StatelessWidget {
                       ),
                       child: Center(child: Text("ማንበብ የሚፈልጉትን ክፍል ይምረጡ",style: TextStyle(color:Constants().backColor),)),
                     ),
-                    const SizedBox(height: 15,),
                     Expanded(
                       child: ListView.builder(
                         physics: const BouncingScrollPhysics(),

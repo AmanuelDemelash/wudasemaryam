@@ -1,6 +1,4 @@
 
-
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wudasemaryam/screen/homepage/controller/homepage_controller.dart';
@@ -10,7 +8,6 @@ import '../../../utils/constant.dart';
 class DayPrayCard extends StatelessWidget {
   int index;
    DayPrayCard({super.key,required this.index});
-
    final homepageconteroller=Get.put(HomepageController());
 
   @override
@@ -25,7 +22,7 @@ class DayPrayCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
               color: Constants().backColor,
               border: Border.all(
-                  color: Constants().textColor.withOpacity(0.6),
+                  color: Constants().textColor.withOpacity(0.3),
                   width:1,
                   style: BorderStyle.solid
               )
