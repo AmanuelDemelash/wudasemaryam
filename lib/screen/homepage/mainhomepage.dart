@@ -19,32 +19,44 @@ class MainHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body:
-      PageView(
-        controller:pagecontroller,
-        physics:const NeverScrollableScrollPhysics(),
-        children: [
-          Homepage(),
-          Setting()
-        ],
+      Container(
+        width: Get.width,
+        height: Get.height,
+        decoration: const BoxDecoration(
+            image: DecorationImage(image: AssetImage("assets/images/back.jpeg"),fit: BoxFit.fill)
+        ),
+        child: PageView(
+          controller:pagecontroller,
+          physics:const NeverScrollableScrollPhysics(),
+          children: [
+            Homepage(),
+            Setting()
+          ],
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: Obx(() =>
-      AnimatedBottomNavigationBar(
-        icons:const [Icons.home,Icons.settings],
-        activeColor: Constants().backColor,
-        inactiveColor: Constants().backColor.withOpacity(0.3),
-        activeIndex:homeCOntroller.intialpage.value,
-        gapLocation: GapLocation.center,
-        notchSmoothness: NotchSmoothness.smoothEdge,
-        backgroundColor: Constants().primColor,
-        iconSize: 30,
-        rightCornerRadius: 10,
-        leftCornerRadius: 10,
-        onTap: (index){
-          homeCOntroller.intialpage.value=index;
-          pagecontroller.jumpToPage(index);
-        }
-        //other params
+      Container(
+        margin:const EdgeInsets.all(15),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(30),
+          child:
+          AnimatedBottomNavigationBar(
+            icons:const [Icons.home,Icons.settings],
+            activeColor: Constants().backColor,
+            inactiveColor: Constants().backColor.withOpacity(0.3),
+            activeIndex:homeCOntroller.intialpage.value,
+            gapLocation: GapLocation.center,
+            notchSmoothness: NotchSmoothness.smoothEdge,
+            backgroundColor: Constants().primColor,
+            iconSize: 30,
+            onTap: (index){
+              homeCOntroller.intialpage.value=index;
+              pagecontroller.jumpToPage(index);
+            }
+            //other params
+          ),
+        ),
       ),)
       // bottomNavigationBar: Obx(() =>
       // NavigationBar(
